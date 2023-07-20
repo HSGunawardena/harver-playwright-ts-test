@@ -7,10 +7,18 @@ Node 20.4.0
 Playwright 1.36.1
 
 # Installation
-Use ```npm install``` to install the framework and dependancies
+`npm install` is used to install the framework and dependancies
 
 # Selected elements to be tested
 
 ## Add Remove Elements
 
-[Add/Remove Elements](https://the-internet.herokuapp.com/add_remove_elements/)
+| Test Link | Test File |
+|-----------|-----------|
+|[Add/Remove Elements](https://the-internet.herokuapp.com/add_remove_elements/) | [Test File](tests/addAndRemoveElements.spec.ts) |
+
+## Checkboxes
+
+| Test Link | Test File |
+|-----------|-----------|
+|[Checkboxes](https://the-internet.herokuapp.com/checkboxes)|
