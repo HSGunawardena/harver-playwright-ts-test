@@ -8,7 +8,7 @@
     "e2e:headed": "npx playwright test --headed",
     "e2e:ui": "npx playwright test --ui",
     "report": "npx playwright show-report",
-    "setup": "npx install && npx install playwright@test && npx install playwright@test"
+    "setup": "npm install && npm install playwright && npm install @playwright/test"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
   "homepage": "https://github.com/HSGunawardena/harver-playwright-ts-test#readme",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "node": "^20.4.0"
+    "node": "^20.4.0",
+    "playwright": "^1.36.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.36.1"
