@@ -25,7 +25,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.STAGING === 'QA' ? 'https://the-internet.herokuapp.com/' : 'https://google.com/', // Can add production when provided
+    baseURL: process.env.STAGING === 'QA' ? 'https://the-internet.herokuapp.com/' : 'https://google.com/', // TODO: Can add production when provided
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
