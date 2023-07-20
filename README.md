@@ -21,4 +21,4 @@ Playwright 1.36.1
 
 | Test Link | Test File |
 |-----------|-----------|
-|[Checkboxes](https://the-internet.herokuapp.com/checkboxes)|
+|[Checkboxes](https://the-internet.herokuapp.com/checkboxes)|[Test File](tests/checkboxes.spec.ts)
