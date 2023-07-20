@@ -4,8 +4,10 @@
   "description": "Haver Playwright Assignment",
   "main": "index.js",
   "scripts": {
-    "playwright:ui": "npm run playwright --ui",
-    "playwright": "npm run playwright"
+    "e2e": "npx playwright test",
+    "e2e:headed": "npx playwright test --headed",
+    "e2e:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/HSGunawardena/harver-playwright-ts-test#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "node": "^20.4.0"
   },
   "devDependencies": {
