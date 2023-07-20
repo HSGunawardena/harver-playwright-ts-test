@@ -7,18 +7,18 @@ test.describe('Input Number Field Verification', () => {
     '-20000000000',
     '0',
     '50000'
-  ]
+  ];
   const rejectedCharacters = [
     '!@#$$%^&*()+=',
     '?;adf[[wekk',
     'God',
     '@sdfwrtl;/p'
-  ]
+  ];
 
   test.beforeEach(async ({ page }) => {
     inputPage = new InputPage(page);
 
-    await inputPage.visitInputPage()
+    await inputPage.visitInputPage();
     await expect(inputPage.getHeaderTitle).toBeVisible();
   });
 

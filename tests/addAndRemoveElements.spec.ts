@@ -7,7 +7,7 @@ test.describe('Adding and Removing Elements in DOM', () => {
   test.beforeEach(async ({ page }) => {
     addRemovePage = new AddRemovePage(page);
 
-    await addRemovePage.visitAddRemovePage()
+    await addRemovePage.visitAddRemovePage();
     await expect(addRemovePage.getHeaderTitle).toBeVisible();
   });
 

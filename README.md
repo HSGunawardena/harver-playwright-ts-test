@@ -30,3 +30,10 @@ This framework will automatically take screenshots on every failure and can be f
 | Test Link | Test File |
 |-----------|-----------|
 |[Input](https://the-internet.herokuapp.com/inputs)|[inputNumbers.spec.ts](tests/inputNumbers.spec.ts)
+
+
+## Status Codes
+
+| Test Link | Test File |
+|-----------|-----------|
+|[Status Codes](https://the-internet.herokuapp.com/status_codes)|[statusCode.spec.ts](tests/statusCode.spec.ts)
