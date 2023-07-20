@@ -11,6 +11,8 @@ Playwright 1.36.1
 
 # Selected elements to be tested
 
+This framework will automatically take screenshots on every failure and can be found in test-results folder
+
 ## Add Remove Elements
 
 | Test Link | Test File |
@@ -22,3 +24,9 @@ Playwright 1.36.1
 | Test Link | Test File |
 |-----------|-----------|
 |[Checkboxes](https://the-internet.herokuapp.com/checkboxes)|[checkboxes.spec.ts](tests/checkboxes.spec.ts)
+
+## Input Numbers
+
+| Test Link | Test File |
+|-----------|-----------|
+|[Input](https://the-internet.herokuapp.com/inputs)|[inputNumbers.spec.ts](tests/inputNumbers.spec.ts)

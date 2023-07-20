@@ -11,19 +11,19 @@ test.describe('Checkbox Verification', () => {
     await expect(checkboxPage.getHeaderTitle).toBeVisible();
   });
 
-  test('verify default status of checkboxes', async ({ page }) => {
+  test('verify default status of checkboxes', async () => {
     await expect(checkboxPage.getCheckbox1).toBeVisible();
     await expect(checkboxPage.getCheckbox1).not.toBeChecked();
     await expect(checkboxPage.getCheckbox2).toBeVisible();
     await expect(checkboxPage.getCheckbox2).toBeChecked();
   });
 
-  test('verify first checkbox for checking and unchecking', async ({ page }) => {
+  test('verify first checkbox for checking and unchecking', async () => {
     await checkboxPage.getCheckbox1.check();
     await expect(checkboxPage.getCheckbox1).toBeChecked();
   });
 
-  test('verify second checkbox for unchecking and checking', async ({ page }) => {
+  test('verify second checkbox for unchecking and checking', async () => {
     await checkboxPage.getCheckbox2.uncheck();
     await expect(checkboxPage.getCheckbox2).not.toBeChecked();
   });

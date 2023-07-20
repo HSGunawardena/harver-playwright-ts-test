@@ -25,7 +25,7 @@ export class AddRemovePage {
     async deleteElement() {
         await expect(this.getDeleteButton).not.toBeVisible();
         await this.addElement();
-        await expect(this.getDeleteButton).toBeVisible()
-        await this.getDeleteButton.click()
+        await expect(this.getDeleteButton).toBeVisible();
+        await this.getDeleteButton.click();
     }
 }

@@ -11,13 +11,13 @@ test.describe('Adding and Removing Elements in DOM', () => {
     await expect(addRemovePage.getHeaderTitle).toBeVisible();
   });
 
-  test('verify adding elements when clicked on Add Element button', async ({ page }) => {
+  test('verify adding elements when clicked on Add Element button', async () => {
     await expect(addRemovePage.getDeleteButton).not.toBeVisible();
     await addRemovePage.addElement();
     await expect(addRemovePage.getDeleteButton).toBeVisible();
   });
 
-  test('verify removing elements when clicked on Delete button', async ({ page }) => {
+  test('verify removing elements when clicked on Delete button', async () => {
     await addRemovePage.deleteElement();
     await expect(addRemovePage.getDeleteButton).not.toBeVisible();
   });
