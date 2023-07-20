@@ -7,7 +7,8 @@
     "e2e": "npx playwright test",
     "e2e:headed": "npx playwright test --headed",
     "e2e:ui": "npx playwright test --ui",
-    "report": "npx playwright show-report"
+    "report": "npx playwright show-report",
+    "setup": "npx install && npx install playwright@test && npx install playwright@test"
   },
   "repository": {
     "type": "git",
