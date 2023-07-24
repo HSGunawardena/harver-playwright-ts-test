@@ -25,7 +25,10 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.STAGING === 'QA' ? 'https://the-internet.herokuapp.com/' : 'https://google.com/', // TODO: Can add production when provided
+    baseURL:
+      process.env.STAGING === 'QA'
+        ? 'https://the-internet.herokuapp.com/'
+        : 'https://google.com/', // TODO: Can add production when provided
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -38,7 +41,7 @@ export default defineConfig({
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1440, height: 1080 }
+        viewport: { width: 1440, height: 1080 },
       },
     },
 
@@ -67,8 +70,8 @@ export default defineConfig({
       name: 'Microsoft Edge',
       use: {
         ...devices['Desktop Edge'],
-        channel: 'msedge',
-        viewport: { width: 1440, height: 1080 }
+        channel: 'edge',
+        viewport: { width: 1440, height: 1080 },
       },
     },
     {
@@ -76,7 +79,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         channel: 'chrome',
-        viewport: { width: 1440, height: 1080 }
+        viewport: { width: 1440, height: 1080 },
       },
     },
   ],

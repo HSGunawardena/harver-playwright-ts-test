@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { CheckboxPage } from '../pages/checkbox-page';
+import { CheckboxPage } from '../pages/checkboxPage';
 
 test.describe('Checkbox Verification', () => {
   let checkboxPage;
@@ -7,7 +7,8 @@ test.describe('Checkbox Verification', () => {
   test.beforeEach(async ({ page }) => {
     checkboxPage = new CheckboxPage(page);
 
-    await checkboxPage.visitCheckboxPage()
+    await checkboxPage.visitCheckboxPage();
+    await expect(checkboxPage.page).toHaveURL(/checkboxes/);
     await expect(checkboxPage.getHeaderTitle).toBeVisible();
   });
 

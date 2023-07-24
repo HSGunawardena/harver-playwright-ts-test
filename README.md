@@ -12,7 +12,7 @@ Playwright 1.36.1
 
 | Command              | Description                                               |
 | -------------------- | --------------------------------------------------------- |
-| `npm run setup`      | The framewok will be set up to run the tests              |
+| `npm run setup`      | The framework will be set up to run the tests             |
 | `npm run e2e`        | Runs all the tests headless in all enabled browsers       |
 | `npm run e2e:headed` | Runs all the tests in headed mode in all enabled browsers |
 | `npm run e2e:ui`     | Opens the playwright UI to debug and run tests            |
