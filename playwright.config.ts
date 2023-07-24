@@ -70,7 +70,7 @@ export default defineConfig({
       name: 'Microsoft Edge',
       use: {
         ...devices['Desktop Edge'],
-        channel: 'edge',
+        channel: 'msedge',
         viewport: { width: 1440, height: 1080 },
       },
     },
