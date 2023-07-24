@@ -1,0 +1,6 @@
+{
+  "statusCodes": ["200", "301", "404", "500"],
+  "pageText": "HTTP status codes are a standard set of numbers used to communicate from a web server to your browser to indicate the outcome of the request being made (e.g. Success, Redirection, Client Error, Server Error). For a complete list of status codes, go here",
+  "pageSubText": "Some standard status codes you will run into include but are not limited to:",
+  "url": "http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml"
+}

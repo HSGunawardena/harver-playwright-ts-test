@@ -1,0 +1,6 @@
+{
+  "acceptedNumbers": ["-20000000000", "0", "50000"],
+  "rejectedCharacters": ["!@#$$%^&*()+=", "?;adf[[wekk", "God", "@sdfwrtl;/p"],
+  "stringWithNumbers": "@%$12345^%^",
+  "stringWithNumbersOutcome": "12345"
+}
