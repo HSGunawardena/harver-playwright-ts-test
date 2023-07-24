@@ -12,7 +12,7 @@ test.describe('Adding and Removing Elements in DOM', () => {
     await expect(addRemovePage.getHeaderTitle).toBeVisible();
   });
 
-  test('verify adding and removing elements when clicked on Delete button', async () => {
+  test('verify adding and removing elements when clicked on Add and Delete buttons respectively', async () => {
     await expect(addRemovePage.getDeleteButton).not.toBeVisible();
     await addRemovePage.addElement();
     await expect(addRemovePage.getDeleteButton).toBeVisible();

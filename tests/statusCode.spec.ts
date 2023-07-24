@@ -5,6 +5,9 @@ import { StatusCodeSubPage } from '../pages/statusCodeSubPage';
 test.describe('Status Code Verification', () => {
   let statusCodePage;
   let statusCodeSubPage;
+  const testData = JSON.parse(
+    JSON.stringify(require('../utilities/statusCode.testData.json'))
+  );
 
   test.beforeEach(async ({ page }) => {
     statusCodePage = new StatusCodePage(page);
@@ -16,71 +19,39 @@ test.describe('Status Code Verification', () => {
   });
 
   test('verify default page content', async () => {
-    await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageText
-    );
+    await expect(statusCodePage.getPageText).toContainText(testData.pageText);
     await expect(statusCodePage.getHereLink).toBeVisible();
     await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageSubText
+      testData.pageSubText
     );
-    await expect(statusCodePage.get200Link).toBeVisible();
-    await expect(statusCodePage.get301Link).toBeVisible();
-    await expect(statusCodePage.get404Link).toBeVisible();
-    await expect(statusCodePage.get500Link).toBeVisible();
+    for (const status of testData.statusCodes) {
+      await statusCodePage.setStatusLocator(status);
+      await expect(statusCodePage.statusLink).toBeVisible();
+    }
   });
 
   test('verify here link takes user to iana page', async ({ page }) => {
     await statusCodePage.getHereLink.click();
-    await expect(page).toHaveURL(
-      'http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml'
-    );
+    await expect(page).toHaveURL(testData.url);
   });
 
-  test('verify 200 status links takes user to correct status code page', async () => {
-    await statusCodePage.get200Link.click();
-    await expect(statusCodeSubPage.getHeaderTitle).toBeVisible();
-    await expect(statusCodeSubPage.getPageText).toContainText(
-      'This page returned a 200 status code.'
+  for (const status of testData.statusCodes) {
+    test(
+      'verify ' +
+        status +
+        ' status links takes user to correct status code page',
+      async () => {
+        await statusCodePage.setStatusLocator(status);
+        await statusCodePage.statusLink.click();
+        await expect(statusCodeSubPage.getHeaderTitle).toBeVisible();
+        await expect(statusCodeSubPage.getPageText).toContainText(
+          'This page returned a ' + status + ' status code.'
+        );
+        await statusCodeSubPage.getHereLink.click();
+        await expect(statusCodePage.getPageText).toContainText(
+          testData.pageText
+        );
+      }
     );
-    await statusCodeSubPage.getHereLink.click();
-    await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageText
-    );
-  });
-
-  test('verify 301 status links takes user to correct status code page', async () => {
-    await statusCodePage.get301Link.click();
-    await expect(statusCodeSubPage.getHeaderTitle).toBeVisible();
-    await expect(statusCodeSubPage.getPageText).toContainText(
-      'This page returned a 301 status code.'
-    );
-    await statusCodeSubPage.getHereLink.click();
-    await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageText
-    );
-  });
-
-  test('verify 404 status links takes user to correct status code page', async () => {
-    await statusCodePage.get404Link.click();
-    await expect(statusCodeSubPage.getHeaderTitle).toBeVisible();
-    await expect(statusCodeSubPage.getPageText).toContainText(
-      'This page returned a 404 status code.'
-    );
-    await statusCodeSubPage.getHereLink.click();
-    await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageText
-    );
-  });
-
-  test('verify 500 status links takes user to correct status code page', async () => {
-    await statusCodePage.get500Link.click();
-    await expect(statusCodeSubPage.getHeaderTitle).toBeVisible();
-    await expect(statusCodeSubPage.getPageText).toContainText(
-      'This page returned a 500 status code.'
-    );
-    await statusCodeSubPage.getHereLink.click();
-    await expect(statusCodePage.getPageText).toContainText(
-      statusCodePage.pageText
-    );
-  });
+  }
 });

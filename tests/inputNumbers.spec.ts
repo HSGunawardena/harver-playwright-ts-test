@@ -3,13 +3,9 @@ import { InputPage } from '../pages/inputPage';
 
 test.describe('Input Number Field Verification', () => {
   let inputPage;
-  const acceptedNumbers = ['-20000000000', '0', '50000'];
-  const rejectedCharacters = [
-    '!@#$$%^&*()+=',
-    '?;adf[[wekk',
-    'God',
-    '@sdfwrtl;/p',
-  ];
+  const testData = JSON.parse(
+    JSON.stringify(require('../utilities/inputNumbers.testData.json'))
+  );
 
   test.beforeEach(async ({ page }) => {
     inputPage = new InputPage(page);
@@ -23,30 +19,32 @@ test.describe('Input Number Field Verification', () => {
     await expect(inputPage.getInputField).toBeEmpty();
   });
 
-  for (let i = 0; i < acceptedNumbers.length; i++) {
+  for (const acceptedNumber of testData.acceptedNumbers) {
     test(
-      'verify ' + acceptedNumbers[i] + ' to be accepted by input field',
+      'verify ' + acceptedNumber + ' to be accepted by input field',
       async () => {
-        await inputPage.getInputField.type(acceptedNumbers[i]);
-        await expect(inputPage.getInputField).toHaveValue(acceptedNumbers[i]);
+        await inputPage.getInputField.type(acceptedNumber);
+        await expect(inputPage.getInputField).toHaveValue(acceptedNumber);
       }
     );
   }
 
-  for (let i = 0; i < rejectedCharacters.length; i++) {
+  for (const rejectedCharacters of testData.rejectedCharacters) {
     test(
-      'verify ' + rejectedCharacters[i] + ' characters are not accepted',
+      'verify ' + rejectedCharacters + ' characters are not accepted',
       async () => {
-        await inputPage.getInputField.type(rejectedCharacters[i]);
+        await inputPage.getInputField.type(rejectedCharacters);
         await expect(inputPage.getInputField).not.toHaveValue(
-          rejectedCharacters[i]
+          rejectedCharacters
         );
       }
     );
   }
 
   test('verify if numbers only accepted when typed with other characters', async () => {
-    await inputPage.getInputField.type('@%$12345^%^');
-    await expect(inputPage.getInputField).toHaveValue('12345');
+    await inputPage.getInputField.type(testData.stringWithNumbers);
+    await expect(inputPage.getInputField).toHaveValue(
+      testData.stringWithNumbersOutcome
+    );
   });
 });
